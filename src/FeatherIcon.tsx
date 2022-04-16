@@ -1,6 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import IconInner from './IconInner';
+import React, { FC } from 'react'
+import { IconInner } from './IconInner'
+
+interface IFeatherIcon {
+  icon: string,
+  size: string | number,
+  className: string,
+  fill: string,
+  otherProps: any
+}
 
 /**
  * Feather icon
@@ -8,15 +15,12 @@ import IconInner from './IconInner';
  * @param {icon} icon name that matches from feathericons
  * @returns FeatherIcon react component
  */
-const FeatherIcon = ({
-  icon,
-  size = 24,
-  className = '',
-  fill = 'none',
-  ...otherProps
-}) => {
+const FeatherIcon : FC<IFeatherIcon> = (props : IFeatherIcon) => {
+
+  const { icon, size = 24, className = '', fill = 'none', otherProps } = props
+
   if (!icon) {
-    return null;
+    return null
   }
 
   return (
@@ -34,14 +38,9 @@ const FeatherIcon = ({
     >
       <IconInner icon={icon} />
     </svg>
-  );
-};
+  )
+}
 
-FeatherIcon.propTypes = {
-  icon: PropTypes.string.isRequired, // the icon name that matches exactly from feathericons
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  className: PropTypes.string,
-  fill: PropTypes.string,
-};
-
-export default FeatherIcon;
+export { 
+  FeatherIcon
+}
