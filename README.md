@@ -1,6 +1,6 @@
 # Feather Icons React
 
-[![npm](https://img.shields.io/npm/v/feather-icons-react.svg)](https://www.npmjs.com/package/feather-icons-react)
+[![npm](https://img.shields.io/npm/v/feather-icons-ts-react.svg)](https://www.npmjs.com/package/feather-icons-ts-react)
 
 `yarn add feather-icons-react`
 
@@ -67,12 +67,9 @@ const ToggleIconContainer = () => {
 };
 ```
 
-
 The icons are all square, based on a 24x24 grid.
 
-
 The full list of icon names can be referenced at: [feathericons.com](https://feathericons.com/)
-
 
 ## Contributing
 To build the bundled assets for consumption
@@ -81,15 +78,10 @@ To build the bundled assets for consumption
 ### Updating the icons
 If you found a missing icon, it is pretty easy to generate a new icons.json and get a PR up so this package stays in sync with the latest feather icons. 
 Go into your desired project directory (ideally one directory above where you have feather-icons-react saved)
-1. `git clone https://github.com/feathericons/feather.git`
-2. `cd feather && npx install`
-3. `npx babel-node bin/build-icons-json.js`
-4. `cp dist/icons.json ../feather-icons-react/src/icons.json`
-5. Now open the file you just copied. Format the file, try to avoid entire green so the diff looks neat in the PR.
-
-Alternatively, you can simply copy just the lines from the JSON file you know are missing. This is easier if you're just adding one new icon.
+1. `Download all` icons from [Feathericons website](https://feathericons.com/) 
+2. Extract `*.svg` files to `assets/feather/`
+3. Run `yarn ingestion`
 
 ### TODO
 - Update this package to have a demo and some tests on icon rendering.
-- Automatically generate new icons via script.
-  - could copy build-icons-json script from feather-icons
+

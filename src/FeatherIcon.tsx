@@ -34,8 +34,7 @@ const FeatherIcon : FC<IFeatherIcon> = (props : IFeatherIcon) => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`feather feather-${icon} ${className}`}
-      {...otherProps}
-    >
+      {...otherProps}>
       <IconInner icon={icon} />
     </svg>
   )

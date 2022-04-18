@@ -3,12 +3,9 @@ import React, { FC } from 'react'
 // TODO: automatically generate this JSON via this repo's build script
 import icons from './icons.json'
 
-const createMarkup = (markup: string) => {
-  // we dont sanitize markup 
-  // since icons.json is maintained within the package before build
-  return { __html: markup }
+interface IIcons {
+  [key: string]: string
 }
-
 interface IIconInner {
   icon: string
 }
@@ -16,18 +13,15 @@ interface IIconInner {
 const IconInner : FC<IIconInner> = (props : IIconInner) => {
   const { icon } = props
 
-  
   // icons are based on generated icons.json from feather lib
-  interface IIcons {
-    [key: string]: string
-  }
-
   const iconMarkup = (icons as IIcons)[icon]
 
   if (iconMarkup) {
     // i didnt want to use dangerouslySetInnerHTML
     // but this way I can just use the JSON to spit out SVG.
-    return <g dangerouslySetInnerHTML={createMarkup(iconMarkup)} />
+    // we dont sanitize markup 
+    // since icons.json is maintained within the package before build
+    return <g dangerouslySetInnerHTML={{ __html: iconMarkup }} />
   }
   return null
 }

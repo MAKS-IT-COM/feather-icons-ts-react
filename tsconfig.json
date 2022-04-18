@@ -22,7 +22,8 @@
     "outDir": "./lib",
   },
   "include": [
-    "src"
+    "src",
+    "assets"
   ],
   "exclude": [
     "node_modules", 
